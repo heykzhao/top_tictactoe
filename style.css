@@ -45,6 +45,7 @@ table {
 /** Reset CSS End **/
 html {
     height: 100%;
+    min-width: 340px;
 }
 
 .header {
@@ -92,11 +93,15 @@ html {
     padding-top: 30px;
 }
 .square {
+    cursor: pointer;
     font-family: "Orbitron", Arial, Helvetica, sans-serif;
     text-align: center;
     vertical-align: middle;
     line-height: 166.66px;
     font-size: 100px;
+}
+.square:hover {
+    background-color: rgb(224, 252, 224);
 }
 .top {
     border-bottom-style: solid;
@@ -155,6 +160,7 @@ html {
     border-color: black;
     border-radius: 100px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    min-width: 230px;
 }
 .copyright {
     display: inline-block;
@@ -166,8 +172,6 @@ html {
     margin-left: 10px;
     height: 25px;
 }
-
-
 
 @media only screen and (max-width: 600px) {
     .title {
