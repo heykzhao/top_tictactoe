@@ -42,3 +42,155 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+/** Reset CSS End **/
+html {
+    height: 100%;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(182, 248, 182);
+    padding: 20px;
+}
+.title {
+    font-size: 45px;
+    font-family: Satisfy, Arial, Helvetica, sans-serif;
+    padding-top: 10px;
+}
+.reset-button {
+    cursor: pointer;
+    border: none;
+    background-color: rgb(255, 212, 131);
+    color: rgb(190, 129, 14);
+    font-size: 35px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    padding: 0px 0px;
+}
+.game {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.whos-turn {
+    padding-top: 30px;
+    font-family: "Orbitron", Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    width: 80%;
+    text-align: center;
+}
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    height: 500px;
+    width: 500px;
+    padding-top: 30px;
+}
+.square {
+    font-family: "Orbitron", Arial, Helvetica, sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 166.66px;
+    font-size: 100px;
+}
+.top {
+    border-bottom-style: solid;
+    border-width: 5px;
+    border-color: rgb(182, 248, 182);
+}
+.middle {
+    border-bottom-style: solid;
+    border-top-style: solid;
+    border-width: 5px;
+    border-color: rgb(182, 248, 182);
+}
+.bottom {
+    border-top-style: solid;
+    border-width: 5px;
+    border-color: rrgb(182, 248, 182);
+}
+.left {
+    border-right-style: solid;
+    border-width: 5px;
+    border-color: rgb(182, 248, 182);
+}
+.center {
+    border-right-style: solid;
+    border-left-style: solid;
+    border-width: 5px;
+    border-color: rgb(182, 248, 182);
+}
+.right {
+    border-left-style: solid;
+    border-width: 5px;
+    border-color: rgb(182, 248, 182);
+}
+.player-1-color {
+    color: rgb(255, 139, 139);
+}
+.player-2-color {
+    color: rgb(118, 118, 245);
+}
+.footer {
+    position: absolute;
+    bottom: 0px;
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+.nameplate {
+    display: flex;
+    background-color: white;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-color: black;
+    border-radius: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.copyright {
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+.github-logo {
+    display: inline-block;
+    margin-left: 10px;
+    height: 25px;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .title {
+        font-size: 30px;
+        padding-top: 5px;
+    }
+    .reset-button {
+        font-size: 25px;
+        height: 35px;
+        width: 35px;
+    }
+    .game-board {
+        height: 300px;
+        width: 300px;
+    }
+    .whos-turn {
+        width: 60%;
+        text-align: center;
+        word-wrap: break-word;
+        font-size: 20px;
+    }
+    .square {
+        line-height: 100px;
+        font-size: 70px;
+    }
+}
