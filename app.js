@@ -4,24 +4,30 @@ const Player = (name, marker) => {
     return {name, marker};
 };
 
+
 const gameBoard = (() => {
     let board = ["","","","","","","","",""]
-    
+
     const resetBoard = () => {
-        console.log("Reset");
-        board = ["","","","","","","","",""]
+        const cleanBoard = ["","","","","","","","",""]
+        board = board.splice(0, 9, ...cleanBoard);
+        displayController.refreshGrid();
     };
 
-    return {board, resetBoard};
+    return {
+        board,
+        resetBoard
+    };
 })();
 
 const displayController = (() => {
 
     // Display board into each div
-    const gridSquares = document.querySelectorAll(".square");
     const refreshGrid = () => {
+        const gridSquares = document.querySelectorAll(".square");
         gridSquares.forEach((square) => {
-            square.innerHTML = gameBoard.board[square.getAttribute("data-index")];
+            const squareIndex = square.getAttribute("data-index");
+            square.innerHTML = gameBoard.board[squareIndex];
             if (square.innerHTML == "X") {
                 square.classList.add("player-1-color");
             } else if (square.innerHTML == "O") {
@@ -29,7 +35,15 @@ const displayController = (() => {
             }
         })
     };
-    return {refreshGrid};
-})();
+    refreshGrid();
 
-displayController.refreshGrid();
+    const resetGrid = () => {
+        const resetGridButton = document.querySelector(".reset-button");
+        resetGridButton.addEventListener("click", gameBoard.resetBoard);
+    }
+    resetGrid();
+    
+    return {
+        refreshGrid,
+    };
+})();
