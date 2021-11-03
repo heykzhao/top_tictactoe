@@ -47,6 +47,9 @@ html {
     height: 100%;
     min-width: 340px;
 }
+.noHover {
+    pointer-events: none;
+}
 
 .header {
     display: flex;
@@ -84,6 +87,9 @@ html {
     width: 80%;
     text-align: center;
 }
+.whos-turn-text {
+    color: rgb(171, 59, 236);
+}
 .game-board {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -97,7 +103,7 @@ html {
     font-family: "Orbitron", Arial, Helvetica, sans-serif;
     text-align: center;
     vertical-align: middle;
-    line-height: 166.66px;
+    line-height: 162px;
     font-size: 100px;
 }
 .square:hover {
@@ -194,7 +200,7 @@ html {
         font-size: 20px;
     }
     .square {
-        line-height: 100px;
+        line-height: 95px;
         font-size: 70px;
     }
 }
