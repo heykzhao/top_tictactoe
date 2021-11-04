@@ -132,6 +132,7 @@ const displayController = (() => {
         const resetGameText = document.querySelector(".reset-game-text");
         if (gameController.getGameStatus() === false && gameController.getRound() < 10) {
             whosTurnText.innerHTML = `It's <span class="whos-turn-text">${currentName}'s</span> turn. <br> Select a square to place your <span class="whos-turn-text">${currentMarker}</span> on!`;
+            resetGameText.style.display = "none";
         } else if (gameController.getGameStatus() === false && gameController.getRound() === 10) {
             whosTurnText.innerHTML = "Looks like it's a tie... You're both winners!";
             resetGameText.style.display = "block";
