@@ -45,6 +45,10 @@ const gameController = (() => {
         round++
     }
 
+    const getRound = () => {
+        return round;
+    }
+
     const checkWinGame = () => {
         // Indexes on board, if all the same, indicates a win;
         const winningConditions = [
@@ -96,6 +100,7 @@ const gameController = (() => {
         getGameStatus,
         currentPlayer,
         playRound,
+        getRound,
         checkWinGame,
         reset,
     }
@@ -125,8 +130,11 @@ const displayController = (() => {
         let currentMarker = gameController.currentPlayer().marker;
         const whosTurnText = document.querySelector(".whos-turn");
         const resetGameText = document.querySelector(".reset-game-text");
-        if (gameController.getGameStatus() === false) {
+        if (gameController.getGameStatus() === false && gameController.getRound() < 10) {
             whosTurnText.innerHTML = `It's <span class="whos-turn-text">${currentName}'s</span> turn. <br> Select a square to place your <span class="whos-turn-text">${currentMarker}</span> on!`;
+        } else if (gameController.getGameStatus() === false && gameController.getRound() === 10) {
+            whosTurnText.innerHTML = "Looks like it's a tie... You're both winners!";
+            resetGameText.style.display = "block";
         } else {
             let winningPlayerName = gameController.checkWinGame().winningPlayer.name;
             whosTurnText.innerHTML = `Congrats, <span class="whos-turn-text">${winningPlayerName}</span>. You've won!`;
@@ -144,6 +152,10 @@ const displayController = (() => {
             gridSquares[winningCombo[0]].classList.add("winning-row");
             gridSquares[winningCombo[1]].classList.add("winning-row");
             gridSquares[winningCombo[2]].classList.add("winning-row");
+        } else if (gameController.getGameStatus() === false && gameController.getRound() === 10) {
+            gridSquares.forEach((square) => {
+                square.classList.add("noHover");
+            })
         }
     };
 
@@ -173,8 +185,6 @@ const displayController = (() => {
         })
     };
     placeMarker();
-
-
 
     // Resets the game board by changing the board array back to all blanks
     const reset = () => {
